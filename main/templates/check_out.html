@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load course_custom_tags %}
+{% block body %}
+
+	
+	<!-- Page Title -->
+    <section class="page-title">
+        <div class="auto-container">
+			<h1>Complete Your Payment</h1>
+			
+			<!-- Search Boxed -->
+			<div class="search-boxed">
+				<div class="search-box">
+				</div>
+			</div>
+			
+        </div>
+    </section>
+    <!--End Page Title-->
+	
+	<!-- Pricing Section -->
+    <section class="pricing-section price-page-section">
+		<div class="auto-container">
+			<!-- Sec Title -->
+			<div class="sec-title style-two centered">
+				<h2>Pricing And Payment Method</h2>
+				
+			</div>
+			
+			<div class="pricing-tabs tabs-box">
+  
+				
+				<!--Tabs Container-->
+				<div class="tabs-content">
+					
+					<!--Tab-->
+					<div class="tab active-tab" id="prod-monthly">
+						<div class="content">
+							<div class="row clearfix">
+								
+
+								
+								<!-- Price Block -->
+								<div class="price-block style-two  col-sm-12">
+									<div class="inner-box">
+										<div class="icon-box">
+											<span class="icon"><img src="{{course.thumbnail.url}}" alt="" /></span>
+										</div>
+										<h3>{{course.name}}</h3>
+										<div class="text">{{ course.description }}</div>
+										<a href="?action=create_payment" class="theme-btn btn-style-eight"><span class="txt">Continue to Payment</span></a>
+                                        <div class="price">Rs. <del>{{course.price}}</del>
+                            &nbsp;</div>
+                                        <div class="price">Save {{course.discount}}%</div>
+										<div class="price">{% cal_sellprice course.price course.discount as value %} Rs. {{value}}</div>
+									</div>
+								</div>
+							
+								
+							</div>
+						</div>
+					</div>
+					
+						
+				</div>
+				
+			</div>
+			
+		</div>
+	</section>
+	<!-- End Pricing Section -->
+	{% if order is not None %}
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+
+<script>
+
+    var options = {
+        "key": "rzp_test_26WYBJdjNWA64A", // Enter the Key ID generated from the Dashboard
+        "name": "Code With Virendra",
+        "description": "Payment For {{course.name}}",
+        "image": "https://png.pngtree.com/element_pic/00/16/07/115783931601b5c.jpg",
+        "order_id": "{{order.id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+        "callback_url": "http://localhost:8000/verify_payment",
+        "prefill": {
+            "name": "{{user.first_name}}",
+            "email": "{{user.email}}",
+        },
+        "theme": {
+            "color": "#3399cc"
+        }
+    };
+    var rzp1 = new Razorpay(options);
+
+    rzp1.open();
+
+</script>
+{% endif %}
+
+{% if error is not None %}
+
+<script>
+
+    window.onload = ()=>{
+        alert("{{error}}")
+    }
+
+</script>
+
+{% endif %}
+
+{% endblock %}

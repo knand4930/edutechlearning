@@ -44,19 +44,27 @@
                         <ul class="info-list">
 							<li><span>Call Us:</span><a href="tel:+123-456-7890"> +1 (800) 123-4567</a></li>
 							<li><span>Email Us:</span><a href="mailto:info@yourcompany.com"> info@yourcompany.com</a></li>
-						</ul>
-						
+						</ul>						
                     </div>
 					
-					<!-- Top Right -->
+	
+
 					<div class="top-right pull-right clearfix">
+						{% if request.user.is_authenticated %}
+						<ul class="login-nav">
+							<li><a href="{% url 'logout' %}">Logout</a></li>
+							<li><a href="{% url 'my-courses' %}">My Course</a></li>
+						</ul>
+						{% else %}
 						<!-- Login Nav -->
 						<ul class="login-nav">
 							<li><a href="{% url 'login' %}">Log In</a></li>
 							<li><a href="{% url 'signup' %}">Register</a></li>
 						</ul>
+						 {% endif %}
 					</div>
-					
+					           
+
                 </div>
             </div>
         </div>
@@ -86,8 +94,7 @@
 
 							<div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
 								<ul class="navigation clearfix">
-									<li><a href="">Home</a></li>
-                                    <li><a href="">Course</a></li>
+									<li><a href="/">Home</a></li>
                                     <li><a href="">About Us</a></li>
                                     <li><a href="{% url 'contact' %}">Contact Us</a></li>
 								</ul>
