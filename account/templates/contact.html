@@ -1,0 +1,109 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<!-- Page Title -->
+    <section class="page-title">
+        <div class="auto-container">
+			<h1>Contact Information</h1>
+			
+			<!-- Search Boxed -->
+			<div class="search-boxed">
+				<div class="search-box">
+
+				</div>
+			</div>
+			
+        </div>
+    </section>
+    <!--End Page Title-->
+	
+
+	<!-- Register Section -->
+	<section class="register-section">
+		<div class="auto-container">
+			<div class="register-box">
+				
+				<!-- Title Box -->
+				<div class="title-box">
+					<h2>Contact Information</h2>
+					<div class="text"><span class="theme_color">Welcome!</span> Please confirm that you are visiting</div>
+				</div>
+			{% if messages %}
+              {% for message in messages %}
+
+              <div class="alert alert-info">
+                {{ message }}
+                </div>
+               {% endfor %}
+              {% endif %}
+
+				<!-- Login Form -->
+				<div class="styled-form">
+					<form method="post" action="">
+						{% csrf_token %}
+						<div class="row clearfix">
+							
+							<!-- Form Group -->
+							<div class="form-group col-lg-6 col-md-12 col-sm-12">
+								<label>Name</label>
+								<input type="text" name="name" value="" placeholder="Full Name" required>
+							</div>
+							
+							<!-- Form Group -->
+							<div class="form-group col-lg-6 col-md-12 col-sm-12">
+								<label>Mobile Number</label>
+								<input type="text" name="phone" value="" placeholder="Mobile Number" required>
+							</div>
+							
+							<!-- Form Group -->
+							<div class="form-group col-lg-6 col-md-12 col-sm-12">
+								<label>Email Address</label>
+								<input type="email" name="email" value="" placeholder="abcd@gmail.com" required>
+							</div>
+							
+							<!-- Form Group -->
+							<div class="form-group col-lg-6 col-md-12 col-sm-12">
+								<label>Subject</label>
+								<input type="text" name="sub" value="" placeholder="Subject" required>
+							</div>
+							
+							<!-- Form Group -->
+							<div class="form-group col-md-12 col-sm-12">
+								<label>Message</label>
+								<textarea type="text" name="msg" value="" placeholder="Message" required></textarea>
+							</div>
+							
+
+							<div class="form-group col-lg-12 col-md-12 col-sm-12 text-center">
+								<button type="input" class="theme-btn btn-style-three"><span class="txt">Submit<i class="fa fa-angle-right"></i></span></button>
+							</div>
+							
+						
+							
+						</div>
+						
+					</form>
+				</div>
+				
+			</div>
+		</div>
+	</section>
+	<!-- End Login Section -->
+	
+	<!-- Call To Action Section Two -->
+	<section class="call-to-action-section-two" style="background-image: url({% static 'images/background/3.png' %})">
+		<div class="auto-container">
+			<div class="content">
+				<h2>Ready to get started?</h2>
+				<div class="text">Replenish him third creature and meat blessed void a fruit gathered you’re, they’re two <br> waters own morning gathered greater shall had behold had seed.</div>
+					<div class="buttons-box">
+					<a href="#" class="theme-btn btn-style-one"><span class="txt">Home <i class="fa fa-angle-right"></i></span></a>
+					<a href="#" class="theme-btn btn-style-two"><span class="txt">Courses <i class="fa fa-angle-right"></i></span></a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Call To Action Section Two -->
+    {% endblock %}

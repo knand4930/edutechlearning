@@ -1,0 +1,287 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load course_custom_tags %}
+{% block body %}
+
+
+	<!-- Page Title -->
+    <section class="page-title">
+        <div class="auto-container">
+			<h1>Course Lesson</h1>
+			
+			<!-- Search Boxed -->
+			<div class="search-boxed">
+				<div class="search-box">    
+					
+				</div>
+			</div>
+			
+        </div>
+    </section>
+    <!--End Page Title-->
+	
+	<!-- Intro Section -->
+	<section class="intro-section-two">
+		<div class="patern-layer-one paroller" data-paroller-factor="0.40" data-paroller-factor-lg="0.20" data-paroller-type="foreground" data-paroller-direction="vertical" style="background-image: url(images/icons/icon-1.png)"></div>
+		<div class="patern-layer-two paroller" data-paroller-factor="0.40" data-paroller-factor-lg="-0.20" data-paroller-type="foreground" data-paroller-direction="vertical" style="background-image: url(images/icons/icon-2.png)"></div>
+		<div class="circle-one"></div>
+		<div class="auto-container">
+			
+			<div class="inner-container">
+				<div class="row clearfix">
+					
+					<!-- Content Column -->
+					<div class="content-column col-lg-8 col-md-12 col-sm-12">
+						<div class="inner-column">
+							
+							<div class="course-video-box">
+								<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/243885948?color=ffffff&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+							</div>
+							
+							<!-- Intro Info Tabs-->
+							<div class="intro-info-tabs">
+								<!-- Intro Tabs-->
+								<div class="intro-tabs tabs-box">
+								
+									<!--Tab Btns-->
+									<ul class="tab-btns tab-buttons clearfix">
+										<li data-tab="#prod-overview" class="tab-btn active-btn">Overview</li>
+									
+									<!--Tabs Container-->
+									<div class="tabs-content">
+										
+										<!--Tab / Active Tab-->
+										<div class="tab active-tab" id="prod-overview">
+											<div class="content">
+												
+												<!-- Cource Overview -->
+												<div class="course-overview">
+													<div class="inner-box">
+														<h4>{{course.name}}</h4>
+														<p>{{course.description | safe }}</p>
+
+
+														<h3>Prerequisite</h3>
+														<ul class="review-list">
+                                                            {% for pre in course.prerequisite_set.all %}
+                                                            <li class="">{{pre.description}}</li>
+                                                            {% endfor %}
+															
+														</ul>
+														<h3>Learnings</h3>
+														<ul class="requirement-list">
+                                                            {% for l in course.learning_set.all %}
+                                                            <li class="">{{l.description}}</li>                                                            
+                                                            {% endfor %}
+                                                            
+														</ul>
+
+														
+													</div>
+												</div>
+												
+											</div>
+										</div>
+										
+
+
+										
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					
+
+
+
+
+					<!-- Accordian Column -->
+					<div class="accordian-column col-lg-4 col-md-12 col-sm-12">
+						<div class="inner-column sticky-top">
+							<h4>Table of contents</h4>
+							<!-- Accordion Box -->
+							<ul class="accordion-box style-two">
+
+								<!-- Block -->
+								<li class="accordion block">
+									<div class="acc-btn active"><div class="icon-outer"><span class="icon icon-plus flaticon-angle-arrow-down"></span></div> UI/ UX Introduction</div>
+									<div class="acc-content current">
+										<div class="content">
+											<div class="clearfix">
+												<div class="pull-left">
+													<a href="https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-image play-icon"><span class="fa fa-play"></span>What is UI/ UX Design?</a>
+												</div>
+												<div class="pull-right">
+													<div class="minutes">2 Min 45 Sec</div>
+												</div>
+											</div>
+										</div>
+										<div class="content">
+											<div class="clearfix">
+												<div class="pull-left">
+													<a href="https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-image play-icon"><span class="fa fa-play"><i class="ripple"></i></span>What is UI/ UX Design?</a>
+												</div>
+												<div class="pull-right">
+													<div class="minutes">2 Min 45 Sec</div>
+												</div>
+											</div>
+										</div>
+										<div class="content">
+											<div class="clearfix">
+												<div class="pull-left">
+													<a href="https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-image play-icon"><span class="fa fa-play"></span>What is UI/ UX Design?</a>
+												</div>
+												<div class="pull-right">
+													<div class="minutes">2 Min 45 Sec</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+
+								<!-- Block -->
+								<li class="accordion block">
+									<div class="acc-btn"><div class="icon-outer"><span class="icon icon-plus flaticon-angle-arrow-down"></span></div> Color Theory</div>
+									<div class="acc-content">
+										<div class="content">
+											<div class="clearfix">
+												<div class="pull-left">
+													<a href="https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-image play-icon"><span class="fa fa-play"></span>What is UI/ UX Design?</a>
+												</div>
+												<div class="pull-right">
+													<div class="minutes">2 Min 45 Sec</div>
+												</div>
+											</div>
+										</div>
+										<div class="content">
+											<div class="clearfix">
+												<div class="pull-left">
+													<a href="https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-image play-icon"><span class="fa fa-play"><i class="ripple"></i></span>What is UI/ UX Design?</a>
+												</div>
+												<div class="pull-right">
+													<div class="minutes">2 Min 45 Sec</div>
+												</div>
+											</div>
+										</div>
+										<div class="content">
+											<div class="clearfix">
+												<div class="pull-left">
+													<a href="https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-image play-icon"><span class="fa fa-play"></span>What is UI/ UX Design?</a>
+												</div>
+												<div class="pull-right">
+													<div class="minutes">2 Min 45 Sec</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								
+								<!-- Block -->
+								<li class="accordion block">
+									<div class="acc-btn"><div class="icon-outer"><span class="icon icon-plus flaticon-angle-arrow-down"></span></div> Basic Typography</div>
+									<div class="acc-content">
+										<div class="content">
+											<div class="clearfix">
+												<div class="pull-left">
+													<a href="https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-image play-icon"><span class="fa fa-play"></span>What is UI/ UX Design?</a>
+												</div>
+												<div class="pull-right">
+													<div class="minutes">2 Min 45 Sec</div>
+												</div>
+											</div>
+										</div>
+										<div class="content">
+											<div class="clearfix">
+												<div class="pull-left">
+													<a href="https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-image play-icon"><span class="fa fa-play"><i class="ripple"></i></span>What is UI/ UX Design?</a>
+												</div>
+												<div class="pull-right">
+													<div class="minutes">2 Min 45 Sec</div>
+												</div>
+											</div>
+										</div>
+										<div class="content">
+											<div class="clearfix">
+												<div class="pull-left">
+													<a href="https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-image play-icon"><span class="fa fa-play"></span>What is UI/ UX Design?</a>
+												</div>
+												<div class="pull-right">
+													<div class="minutes">2 Min 45 Sec</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								
+								<!-- Block -->
+								<li class="accordion block">
+									<div class="acc-btn"><div class="icon-outer"><span class="icon icon-plus flaticon-angle-arrow-down"></span></div> Wireframing & Prototyping</div>
+									<div class="acc-content">
+										<div class="content">
+											<div class="clearfix">
+												<div class="pull-left">
+													<a href="https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-image play-icon"><span class="fa fa-play"></span>What is UI/ UX Design?</a>
+												</div>
+												<div class="pull-right">
+													<div class="minutes">2 Min 45 Sec</div>
+												</div>
+											</div>
+										</div>
+										<div class="content">
+											<div class="clearfix">
+												<div class="pull-left">
+													<a href="https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-image play-icon"><span class="fa fa-play"><i class="ripple"></i></span>What is UI/ UX Design?</a>
+												</div>
+												<div class="pull-right">
+													<div class="minutes">2 Min 45 Sec</div>
+												</div>
+											</div>
+										</div>
+										<div class="content">
+											<div class="clearfix">
+												<div class="pull-left">
+													<a href="https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-image play-icon"><span class="fa fa-play"></span>What is UI/ UX Design?</a>
+												</div>
+												<div class="pull-right">
+													<div class="minutes">2 Min 45 Sec</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+							
+							</ul>
+							
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		
+		</div>
+	</section>
+	<!-- End intro Courses -->
+
+
+	
+	<!-- Call To Action Section Two -->
+	<section class="call-to-action-section-two" style="background-image: url(images/background/3.png)">
+		<div class="auto-container">
+			<div class="content">
+				<h2>Ready to get started?</h2>
+				<div class="text">Replenish him third creature and meat blessed void a fruit gathered you’re, they’re two <br> waters own morning gathered greater shall had behold had seed.</div>
+				<div class="buttons-box">
+					<a href="course.html" class="theme-btn btn-style-one"><span class="txt">Get Stared <i class="fa fa-angle-right"></i></span></a>
+					<a href="course.html" class="theme-btn btn-style-two"><span class="txt">All Courses <i class="fa fa-angle-right"></i></span></a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Call To Action Section Two -->
+	
+
+
+
+{% endblock %}

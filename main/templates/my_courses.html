@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load course_custom_tags %}
+{% block body %}
+
+
+
+
+	<!-- Banner Section -->
+    <section class="banner-section">
+		<div class="pattern-layer" style="background-image: url({% static 'images/background/1.png' %})"></div>
+		<div class="auto-container">
+
+			
+		</div>
+	</section>
+	<!-- End Banner Section -->
+	
+
+
+
+
+
+	<!-- Courses Section -->
+	<section class="courses-section">
+		<div class="auto-container">
+			<div class="row clearfix">
+
+
+
+				        {% for uc in user_courses %}
+
+				<!-- Cource Block -->
+				<div class="cource-block col-lg-4 col-md-6 col-sm-12">
+					<div class="inner-box">
+						<div class="image">
+							<img src="{{uc.course.thumbnail.url}}" style="max-width:600px; height:300px;" alt="{{uc.course.name}}" />
+						</div>
+						<div class="lower-content">
+							<div class="clearfix">
+								<div class="pull-left">
+									<h5>{{uc.course.name}}</h5>
+								</div>
+								
+							</div>
+							<div class="text">{{ course.description }}</div>
+							
+							
+							
+							<div class="clearfix">
+								<div class="pull-right">
+									<div class="students"><a href="/course/{{uc.course.slug}}" class="btn btn-light btn-block">Start Course</a></div>
+								</div>
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+
+
+				       {% endfor %}
+				
+
+
+
+			</div>
+		</div>
+	</section>
+	<!-- End Courses Section -->
+
+
+
+
+
+	
+
+
+
+	<!-- Call To Action Section Two -->
+	<section class="call-to-action-section-two" style="background-image: url({% static 'images/background/3.png' %})">
+		<div class="auto-container">
+			<div class="content">
+				<h2>Ready to get started?</h2>
+				<div class="text">Replenish him third creature and meat blessed void a fruit gathered you’re, they’re two <br> waters own morning gathered greater shall had behold had seed.</div>
+				<div class="buttons-box">
+					<a href="/" class="theme-btn btn-style-one"><span class="txt">Home <i class="fa fa-angle-right"></i></span></a>
+					<a href="#" class="theme-btn btn-style-two"><span class="txt">All Courses <i class="fa fa-angle-right"></i></span></a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Call To Action Section Two -->
+	
+
+
+
+
+{% endblock %}
