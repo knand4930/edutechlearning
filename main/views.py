@@ -12,6 +12,7 @@ from time import time
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView
 from django.utils.decorators import method_decorator
+from django.contrib import messages
 
 
 import razorpay
@@ -28,6 +29,9 @@ def checkout(request, slug):
     course = Course.objects.get(slug=slug)
     user = request.user
     action = request.GET.get('action')
+    couponcode = request.GET.get('couponcode')
+    coupon_code_message = None
+    coupon = None
     order = None
     payment = None
     error = None
@@ -41,7 +45,15 @@ def checkout(request, slug):
         amount = int(
             (course.price - (course.price * course.discount * 0.01)) * 100)
    # if ammount is zero dont create paymenty , only save emrollment obbect
-
+    if couponcode:
+        try:
+            coupon = CouponCode.objects.get(course=course, code=couponcode)
+            amount = course.price - (course.price * coupon.discount * 0.01)
+            amount = int(amount) * 100
+        except Exception as e:
+            coupon_code_message = "Invaild Coupon Code"
+            messages.error(request, 'Coupon Code Invalid')
+    
     if amount == 0:
         userCourse = UserCourse(user=user, course=course)
         userCourse.save()
@@ -69,12 +81,18 @@ def checkout(request, slug):
         payment.order_id = order.get('id')
         payment.save()
 
+
+            
+    
     context = {
         "course": course,
         "order": order,
         "payment": payment,
         "user": user,
-        "error": error
+        "error": error,
+        "coupon": coupon,
+        "coupon_code_message": coupon_code_message,
+        
     }
     return render(request, template_name="check_out.html", context=context)
 

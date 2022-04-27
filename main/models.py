@@ -74,3 +74,13 @@ class Payment(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
     status = models.BooleanField(default=False)
+
+
+class CouponCode(models.Model):
+    code = models.CharField(max_length=10)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name="coupons")
+    discount = models.IntegerField(default=0)
+    
+    def __str__(self):
+        return self.code
+    

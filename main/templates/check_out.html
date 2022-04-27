@@ -49,11 +49,53 @@
 										</div>
 										<h3>{{course.name}}</h3>
 										<div class="text">{{ course.description }}</div>
+
+										{% if coupon %}
+									
+										<div class="price">Payable Amount: {% cal_sellprice course.price coupon.discount as value %} Rs. {{value}} &nbsp;</div>
+											<p class="alert alert-light border price">
+											Coupon Code Applied
+											You Have Got {{ coupon.discount }}%  Discount
+										</p>
+										<a href="?action=create_payment&couponcode={{ coupon.code }}" class="theme-btn btn-style-eight"><span class="txt">Continue to Payment</span></a>
+										{% else %}
+
+                                        <div class="price">Payable Amount: {% cal_sellprice course.price course.discount as value %} Rs. {{value}} &nbsp;</div>
+										<div class="price">Save {{course.discount}}%</div>
 										<a href="?action=create_payment" class="theme-btn btn-style-eight"><span class="txt">Continue to Payment</span></a>
-                                        <div class="price">Rs. <del>{{course.price}}</del>
-                            &nbsp;</div>
-                                        <div class="price">Save {{course.discount}}%</div>
-										<div class="price">{% cal_sellprice course.price course.discount as value %} Rs. {{value}}</div>
+										{% endif %}
+                                        
+										<div class="price">Main Price: Rs.<del>{{course.price}}</del></div>
+
+
+				<!-- Coupon Area -->
+				<div class="styled-form">
+					{% if coupon_code_message %}
+					<div class="alert alert-info">
+						{{ coupon_code_message }}
+					</div>
+					{% endif %}
+					<form method="get" action="">
+						<div class="row clearfix">
+							
+							<!-- Form Group -->
+							<div class="form-group col-lg-6 col-md-12 col-sm-12">
+								<input type="text" name="couponcode" value="" placeholder="Coupon Code" required>
+							</div>
+							<!-- Form Group -->
+							<div class="form-group col-lg-6 col-md-12 col-sm-12">
+								<input type="submit" class="btn btn-primary" value="Apply Coupon">
+							</div>
+							
+						
+							
+						</div>
+						
+					</form>
+				</div>
+
+
+
 									</div>
 								</div>
 							
