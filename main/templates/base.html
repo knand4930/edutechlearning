@@ -42,7 +42,6 @@
 					
 						<!-- Info List -->
                         <ul class="info-list">
-							<li><span>Call Us:</span><a href="tel:+123-456-7890"> +1 (800) 123-4567</a></li>
 							<li><span>Email Us:</span><a href="mailto:info@yourcompany.com"> info@yourcompany.com</a></li>
 						</ul>						
                     </div>
@@ -95,7 +94,7 @@
 							<div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
 								<ul class="navigation clearfix">
 									<li><a href="/">Home</a></li>
-                                    <li><a href="">About Us</a></li>
+                                    <li><a href="{% url 'aboutus' %}">About Us</a></li>
                                     <li><a href="{% url 'contact' %}">Contact Us</a></li>
 								</ul>
 							</div>
@@ -132,7 +131,7 @@
 {% endblock %}
 
 
-	
+	<hr>
 	<!--Main Footer-->
     <footer class="main-footer">
 		<!-- Pattern Layer -->
@@ -154,7 +153,7 @@
 									<div class="logo">
                                     	<a href="index.html"><img src="https://via.placeholder.com/230x60" alt="" /></a>
                                     </div>
-									<div class="text">Replenish him third creature and meat blessed void a fruit gathered you’re, they’re two waters own morning gathered greater.</div>
+									<div class="text">We provides minimum cost of courses to learn every learner to a minimum cost.</div>
 									<div class="social-box">
 										<a href="#" class="fa fa-facebook"></a>
 										<a href="#" class="fa fa-instagram"></a>
@@ -162,7 +161,6 @@
 										<a href="#" class="fa fa-google"></a>
 										<a href="#" class="fa fa-pinterest-p"></a>
 									</div>
-									<div class="copyright">Copyright &copy; 2020 AuburnForest</div>
 								</div>
 							</div>
 							
@@ -171,11 +169,7 @@
                                 <div class="footer-widget links-widget">
 									<h4>About Us</h4>
 									<ul class="links-widget">
-										<li><a href="#">Afficiates</a></li>
-										<li><a href="#">Partners</a></li>
-										<li><a href="#">Reviews</a></li>
-										<li><a href="#">Blogs</a></li>
-										<li><a href="#">Newsletter</a></li>
+										<li><a href="{% url 'aboutus' %}">About Us</a></li>
 									</ul>
 								</div>
 							</div>
@@ -192,11 +186,8 @@
                                 <div class="footer-widget links-widget">
 									<h4>Resource</h4>
 									<ul class="links-widget">
-										<li><a href="#">Privacy Policy</a></li>
-										<li><a href="#">Support Area</a></li>
-										<li><a href="#">Documentations</a></li>
-										<li><a href="#">How it works</a></li>
-										<li><a href="#">Terms of Policy</a></li>
+										<li><a href="{% url 'my-courses' %}">My Course</a></li>
+										
 									</ul>
 								</div>
 							</div>
@@ -206,11 +197,7 @@
                                 <div class="footer-widget links-widget">
 									<h4>Quick Links</h4>
 									<ul class="links-widget">
-										<li><a href="#">home</a></li>
-										<li><a href="#">About us</a></li>
-										<li><a href="#">Features</a></li>
-										<li><a href="#">Pricing</a></li>
-										<li><a href="#">Contact</a></li>
+										<li><a href="/">home</a></li>
 									</ul>
 								</div>
 							</div>
@@ -248,6 +235,7 @@
 <script src="{% static 'js/wow.js' %}"></script>
 <script src="{% static 'js/jquery-ui.js' %}"></script>
 <script src="{% static 'js/script.js' %}"></script>
+
 
 </body>
 </html>

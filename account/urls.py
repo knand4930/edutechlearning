@@ -12,5 +12,6 @@ urlpatterns = [
     path('changepassword/<token>', changepassword, name='changepassword'),
     path('forgetpassword', forgetpassword, name='forgetpassword'),
     path('contact', contactus, name='contact'),
+    path('aboutus', aboutus, name='aboutus'),
 ]
 # <token >

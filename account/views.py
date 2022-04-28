@@ -217,3 +217,7 @@ def contactus(request):
         print(e)
         messages.error(request, 'Please connect with Admistrator !!')
     return render(request, 'contact.html')
+
+def aboutus(request):
+    abt = AboutUs.objects.all()
+    return render(request, 'aboutus.html', {'abt': abt})

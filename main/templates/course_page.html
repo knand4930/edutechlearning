@@ -20,6 +20,8 @@
     </section>
     <!--End Page Title-->
 	
+
+
 	<!-- Intro Section -->
 	<section class="intro-section-two">
 		<div class="patern-layer-one paroller" data-paroller-factor="0.40" data-paroller-factor-lg="0.20" data-paroller-type="foreground" data-paroller-direction="vertical" style="background-image: url(images/icons/icon-1.png)"></div>
@@ -52,6 +54,16 @@
 								
 									<!--Tab Btns-->
 									<ul class="tab-btns tab-buttons clearfix">
+										<li data-tab="#prod-overview" class="tab-btn active-btn">Overview</li>&ensp;
+										&ensp; &ensp; &ensp; &ensp;
+										<li data-tab="#prod-reviews" class="tab-btn">Reviews</li>
+									</ul>
+									
+
+
+
+									<!--Tab Btns-->
+									<ul class="tab-btns tab-buttons clearfix">
 																			
 									<!--Tabs Container-->
 									<div class="tabs-content">
@@ -70,7 +82,7 @@
 														<h3>Prerequisite</h3>
 														<ul class="review-list">
                                                             {% for pre in course.prerequisite_set.all %}
-                                                            <li class="">{{pre.description}}</li>
+                                                            <li>{{pre.description}}</li>
                                                             {% endfor %}
 															
 														</ul>
@@ -90,8 +102,77 @@
 										</div>
 										
 
+																				<!-- Tab -->
+										<div class="tab" id="prod-reviews">
+											<div class="content">
 
-										
+												{% for rs in rvs %}
+												<div class="cource-review-box">
+													<h4>Name: &ensp;{{ rs.user.first_name }}  {{ rs.user.last_name }}</h4>
+													<div class="rating">
+														<span class="total-rating">{{ rs.create_at }}</span> 
+														<span class="fa fa-star{% if rs.rate < 1 %}-o empty{% endif %}" ></span>
+														<span class="fa fa-star{% if rs.rate < 2 %}-o empty{% endif %}" ></span>
+														<span class="fa fa-star{% if rs.rate < 3 %}-o empty{% endif %}" ></span>
+														<span class="fa fa-star{% if rs.rate < 4 %}-o empty{% endif %}" ></span>
+														<span class="fa fa-star{% if rs.rate < 5 %}-o empty{% endif %}" ></span>&ensp;
+													</div>
+													<div class="text">{{ rs.text }}</div>
+													<br>
+												</div>
+												{% endfor %}
+
+												
+											</div>
+
+
+
+
+{% if messages %}
+              {% for message in messages %}
+
+              <div class="alert alert-info">
+                {{ message }}
+                </div>
+               {% endfor %}
+              {% endif %}
+
+				<!-- Login Form -->
+				<div class="styled-form">
+					<form method="post" action="/submit_review/{{course.id}}">
+                        {% csrf_token %}
+						<div class="form-group ">
+							<label>Your FeedBack </label>
+							<textarea type="text" name="text" value="" column="5" placeholder="Your FeedBack " required></textarea>
+						</div>
+
+						<div class="cource-review-box">
+							<div class="rating">
+								<input type="radio" name="rate" value="1" /><span class="fa fa-star" ></span>
+								<input type="radio" name="rate" value="2" /><span class="fa fa-star" ></span>
+								<input type="radio" name="rate" value="3" /><span class="fa fa-star" ></span>
+								<input type="radio" name="rate" value="4" /><span class="fa fa-star" ></span>
+								<input type="radio" name="rate" value="5" /><span class="fa fa-star" ></span>
+							</div>
+						</div>
+						{% if user.id is not None %}
+						<div class="form-group text-center">
+							<button type="input" class="theme-btn btn-style-three"><span class="txt">Login <i class="fa fa-angle-right"></i></span></button>
+						</div>
+						
+						{% else %}
+							You must be logged in to post a review
+						{% endif %}
+					</form>
+
+
+				</div>
+
+
+
+
+
+										</div>
 									</div>
 								</div>
 							</div>
@@ -110,8 +191,6 @@
 							<!-- Accordion Box -->
 							<ul class="accordion-box style-two">
 
-
-
 								  <!-- leacture list -->
 
 								<!-- Block -->
@@ -124,12 +203,6 @@
                             </li>
 								{% endfor %}
 
-
-
-
-
-							
-							
 							</ul>
 							
 						</div>
@@ -143,22 +216,6 @@
 	<!-- End intro Courses -->
 
 
-	
-	<!-- Call To Action Section Two -->
-	<section class="call-to-action-section-two" style="background-image: url(images/background/3.png)">
-		<div class="auto-container">
-			<div class="content">
-				<h2>Ready to get started?</h2>
-				<div class="text">Replenish him third creature and meat blessed void a fruit gathered you’re, they’re two <br> waters own morning gathered greater shall had behold had seed.</div>
-				<div class="buttons-box">
-					<a href="course.html" class="theme-btn btn-style-one"><span class="txt">Get Stared <i class="fa fa-angle-right"></i></span></a>
-					<a href="course.html" class="theme-btn btn-style-two"><span class="txt">All Courses <i class="fa fa-angle-right"></i></span></a>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Call To Action Section Two -->
-	
 
 
 

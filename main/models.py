@@ -84,3 +84,24 @@ class CouponCode(models.Model):
     def __str__(self):
         return self.code
     
+STATUS = (
+    (1, '1'),
+    (2, '2'),
+    (3, '3'),
+    (4, '4'),
+    (5, '5'),
+)
+class Review(models.Model):
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    text = models.TextField(blank=True)
+    rate = models.IntegerField(default=1)
+    ip = models.CharField(max_length=20, blank=True)
+    create_at = models.DateTimeField(auto_now_add=True)
+    
+    
+    def __str__(self):
+        return self.user.username
+    class Meta:
+        ordering = ('-create_at',)

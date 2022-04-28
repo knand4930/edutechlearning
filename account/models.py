@@ -44,3 +44,13 @@ class ContactUs(models.Model):
     
     def __str__(self):
         return self.name
+    
+
+class AboutUs(models.Model):
+    name = models.CharField(max_length=300)
+    short = models.CharField(max_length=600)
+    desc = RichTextField()
+    img = models.ImageField(upload_to='aboutus/')
+    
+    def __str__(self):
+        return self.name

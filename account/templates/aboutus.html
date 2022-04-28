@@ -1,0 +1,59 @@
+{% extends "base.html"%}
+{% load static %}
+
+	
+{% block body %}
+	<!--Sidebar Page Container-->
+	<!-- Page Title -->
+    <section class="page-title">
+        <div class="auto-container">
+			<h1>About Details</h1>
+			
+
+        </div>
+    </section>
+    <!--End Page Title-->
+	<br>
+    <div class="sidebar-page-container">
+	
+    	<div class="auto-container">
+        	<div class="row clearfix">
+				
+				<!-- Sidebar Side -->
+                <div class="sidebar-side style-two blog-sidebar col-lg-3 col-md-12 col-sm-12">
+
+				</div>
+				
+				<!-- Content Side -->
+                {% for i in abt %}
+                {% if forloop.counter == 1 %}
+                <div class="content-side blog-detail-column col-lg-9 col-md-12 col-sm-12">
+                	<div class="blog-detail">
+						<div class="inner-box">
+							<h2>{{ i.name }} <br> developers</h2>
+				
+							<div class="image">
+								<img src="{{ i.img.url }}" alt="" />
+							</div>
+							<h4>{{ i.short }}</h4>
+							<p>{{ i.desc }}</p>
+						
+
+						</div>
+
+
+						
+					</div>
+					
+				</div>
+                {% endif %}
+                {% endfor %}
+
+
+				
+			</div>
+			
+		</div>
+	</div>
+
+{% endblock %}
