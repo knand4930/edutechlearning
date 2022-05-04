@@ -1,6 +1,52 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load course_custom_tags %}
+
+{% block title %} Educatio For Every Where To Improve Your Career {% endblock title %}
+
+   {% block meta %}
+
+
+   <!-- Primary Meta Tags -->
+<meta name="title" content="">
+<meta name="description" content="">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="">
+<meta property="og:title" content="">
+<meta property="og:description" content="">
+<meta property="og:image" content="">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="">
+<meta property="twitter:title" content="">
+<meta property="twitter:description" content="">
+<meta property="twitter:image" content="">
+
+    {% endblock meta %}
+
+
+	
+    {% block schema %}
+<script type="application/ld+json">
+[
+{
+"@context": "https://schema.org",
+"@type": "Event",
+"name": "",
+"description": "",
+"image": "",
+"url": ""
+"location": {
+"@type": "website",
+},
+]
+</script>
+
+    {% endblock schema %}
+
 {% block body %}
 
 
@@ -32,7 +78,7 @@
 					<div class="inner-column">
 						<!-- Sec Title -->
 						
-						<a href="" class="theme-btn btn-style-three"><span class="txt">My Courses<i class="fa fa-angle-right"></i></span></a>
+						<a href="{% url 'my-courses' %}" class="theme-btn btn-style-three"><span class="txt">My Courses<i class="fa fa-angle-right"></i></span></a>
 					</div>
 				</div>
 				
@@ -42,7 +88,7 @@
 				<div class="cource-block col-lg-4 col-md-6 col-sm-12">
 					<div class="inner-box">
 						<div class="image">
-							<img src="{{course.thumbnail.url}}" alt="{{course.name}}" />
+							<img src="{{course.thumbnail.url}}" style="max-width:550px; height:275px;" alt="{{course.name}}" />
 						</div>
 						<div class="lower-content">
 							<div class="clearfix">

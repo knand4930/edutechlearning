@@ -1,5 +1,55 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %} {{course.name}} {% endblock title %}
+
+   {% block meta %}
+
+   <!-- Primary Meta Tags -->
+<meta name="title" content="{{course.name}}">
+<meta name="description" content="{{ course.description }}">
+<meta name="image" content="{{ course.thumbnail.url }}">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ course.slug }}">
+<meta property="og:title" content="{{course.name}}">
+<meta property="og:description" content="{{ course.description }}">
+<meta property="og:image" content="{{ course.thumbnail.url }}">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="{{ course.slug }}">
+<meta property="twitter:title" content="{{course.name}}">
+<meta property="twitter:description" content="{{ course.description }}">
+<meta property="twitter:image" content="{{ course.thumbnail.url }}">
+
+
+    {% endblock meta %}
+
+
+	
+    {% block schema %}
+
+
+	<script type="application/ld+json">
+[
+{
+"@context": "https://schema.org",
+"@type": "Event",
+"name": "{{course.name}}",
+"description": "{{ course.description }}",
+"image": "{{ course.thumbnail.url }}",
+"url": "{{ course.slug }}"
+"location": {
+"@type": "website",
+},
+]
+</script>
+
+
+
+    {% endblock schema %}
+
 {% load course_custom_tags %}
 {% block body %}
 

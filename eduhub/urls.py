@@ -17,6 +17,22 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.sitemaps.views import sitemap
+from account.sitemaps import StaticViewSitemap
+from django.contrib.sitemaps import GenericSitemap
+from django.views.generic.base import TemplateView
+from account.models import *
+from main.models import *
+
+info_dict = {
+    'queryset': Course.objects.all(),
+    'slug': 'slug',
+}
+
+sitemaps = {
+    'static': StaticViewSitemap
+
+}
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,6 +40,11 @@ urlpatterns = [
     path('', include('account.urls')),
     path('', include('payment.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
+         name='django.contrib.sitemaps.views.sitemap'),
+    path('course.xml', sitemap,
+         {'sitemaps': {'course': GenericSitemap(info_dict, priority=1.0,)}},
+         name='django.contrib.sitemaps.views.sitemap'),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

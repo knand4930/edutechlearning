@@ -1,7 +1,65 @@
 {% extends "base.html"%}
 {% load static %}
 
+
+
+                {% for n in abt %}
+                {% if forloop.counter == 1 %}
+{% block title %} {{n.name}} {% endblock title %}
+{% endif %}
+                {% endfor %}
+   {% block meta %}
+                {% for k in abt %}
+                {% if forloop.counter == 1 %}
+   <!-- Primary Meta Tags -->
+<meta name="title" content="{{k.name}}">
+<meta name="description" content="{{ k.short }}">
+<meta name="image" content="{{ k.img.url }}">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{k.name}}">
+<meta property="og:description" content="{{ k.short }}">
+<meta property="og:image" content="{{ k.img.url }}">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="{{k.name}}">
+<meta property="twitter:description" content="{{ k.short }}">
+<meta property="twitter:image" content="{{ k.img.url }}">
+{% endif %}
+                {% endfor %}
+
+    {% endblock meta %}
+
+
 	
+    {% block schema %}
+
+
+	<script type="application/ld+json">
+[
+	                {% for j in abt %}
+                {% if forloop.counter == 1 %}
+{
+"@context": "https://schema.org",
+"@type": "Event",
+"name": "{{j.name}}",
+"description": "{{ j.short }}",
+"image": "{{ j.img.url }}",
+"location": {
+"@type": "website",
+},
+                {% endif %}
+                {% endfor %}
+]
+</script>
+
+
+
+    {% endblock schema %}
+
+
 {% block body %}
 	<!--Sidebar Page Container-->
 	<!-- Page Title -->
@@ -36,7 +94,7 @@
 								<img src="{{ i.img.url }}" alt="" />
 							</div>
 							<h4>{{ i.short }}</h4>
-							<p>{{ i.desc }}</p>
+							<p>{{ i.desc | safe }}</p>
 						
 
 						</div>

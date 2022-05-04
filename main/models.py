@@ -23,6 +23,8 @@ class Course(models.Model):
             self.slug = slugify(self.title)
         super(Course, self).save(*args, **kwargs)
     
+    def get_absolute_url(self):
+        return f'/{self.slug}'
 
 class CourseProperty(models.Model):
     description = models.CharField(max_length=100, null=False)

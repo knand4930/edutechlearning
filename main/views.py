@@ -184,6 +184,6 @@ def submit_review(request, id):
         data.ip = request.META.get('REMOTE_ADDR')
         data.save()
         messages.success(
-            request, "Your review has ben sent. Thank you for your interest.")
+            request, "Your review has been update. Thank you for your interest.")
         return HttpResponseRedirect(url)
     return HttpResponseRedirect(url)
