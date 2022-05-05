@@ -58,7 +58,6 @@ def register_attempts(request):
             email = request.POST.get('email')
             mobile = request.POST.get('mobile')
             password = request.POST.get('password')
-            gender = request.POST.get('gender')
 
             try:
                 if User.objects.filter(username=username).first():
@@ -78,7 +77,7 @@ def register_attempts(request):
 
                 auth_token = str(uuid.uuid4())
                 profile_obj = Profile.objects.create(
-                    user=user_obj, auth_token=auth_token, name=first_name + '' + last_name, email=email, mobile=mobile, gender=gender)
+                    user=user_obj, auth_token=auth_token, name=first_name + '' + last_name, email=email, mobile=mobile)
                 profile_obj.save()
                 send_mail_after_registration(email, auth_token)
                 return redirect('token_send')

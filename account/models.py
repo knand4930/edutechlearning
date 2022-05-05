@@ -19,7 +19,6 @@ class Profile(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField(max_length=1000)
     mobile = models.CharField(max_length=20)
-    gender = models.CharField(max_length=20)
     create_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
