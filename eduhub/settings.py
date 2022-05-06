@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'payment',
     'ckeditor',
     'django.contrib.sitemaps',
+    "watermarker",
 ]
 
 MIDDLEWARE = [
@@ -141,7 +142,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'gohelps.net@gmail.com'
+EMAIL_HOST_USER = 'noreplyeducationora@gmail.com'
 EMAIL_HOST_PASSWORD = 'Nand@321'
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
