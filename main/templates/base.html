@@ -34,7 +34,7 @@
 
 </head>
 
-<body oncontextmenu="return false">
+<body>
 
 <div class="page-wrapper">
  	
@@ -79,7 +79,6 @@
                 </div>
             </div>
         </div>
-		
 
     	<!-- Header Upper -->
         <div class="header-upper">
@@ -87,7 +86,7 @@
             	<div class="clearfix">
                 	
                 	<div class="pull-left logo-box">
-                    	<div class="logo"><a href="/"><img src="https://via.placeholder.com/230x60" alt="" title="Bootcamp"></a></div>
+                    	<div class="logo"><a href="/"><img src="{% static 'images/logo/logowhite.png' %}" style="width: 230px; height:75px" alt="" title="Bootcamp"></a></div>
                     </div>
                    	
                    	<div class="nav-outer clearfix">
@@ -163,7 +162,7 @@
                             <div class="footer-column col-lg-7 col-md-6 col-sm-12">
                                 <div class="footer-widget logo-widget">
 									<div class="logo">
-                                    	<a href="/"><img src="https://via.placeholder.com/230x60" alt="" /></a>
+                                    	<a href="/"><img src="{% static 'images/logo/logo.png' %}" style="width: 230px; height:70px" alt="" title="Education ORA"></a></a>
                                     </div>
 									<div class="text">We provides minimum cost of courses to learn every learner to a minimum cost.</div>
 									<div class="social-box">
@@ -249,36 +248,6 @@
 <script src="{% static 'js/script.js' %}"></script>
 
 
-<script>
-
-
-document.addEventListener('keydown', function() {
-    if (event.keyCode == 123) {
-      alert("You Can not Do This!");
-      return false;
-    } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) {
-      alert("You Can not Do This!");
-      return false;
-    } else if (event.ctrlKey && event.keyCode == 85) {
-      alert("You Can not Do This!");
-      return false;
-    }
-  }, false);
-  
-  if (document.addEventListener) {
-    document.addEventListener('contextmenu', function(e) {
-      alert("You Can not Do This!");
-      e.preventDefault();
-    }, false);
-  } else {
-    document.attachEvent('oncontextmenu', function() {
-      alert("You Can not Do This!");
-      window.event.returnValue = false;
-    });
-  }
-
-
-</script>
 
 </body>
 </html>
